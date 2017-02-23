@@ -1,0 +1,77 @@
+<html>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+      <link rel="stylesheet" type="text/css" href="css/examples.css">
+	   
+<div class='bs-example'>
+    <div class='form-group voffset2'>
+	<div class="form-inline">
+        <input class='form-control required search-box' required type="text" style="width:90% " id='inputUser' ng-model='sterm' ng-change='filterData(sterm)' autocomplete='off' placeholder='Enter Search Term' />
+		
+        <button class="close-icon" id="clearTxt" type="button"></button>
+		</div>
+        <div ng-if='visible' class='dropdown limitHeight'>
+
+            <div ng-model='selName' ng-class='{active: data.selected}' ng-click='updateSearchTerm(data.value)' ng-repeat='data in typeAheadCtrl.results track by $index' class='divider list-group-item'>
+
+                <div class='inline'> <img ng-src='{{data.value.img}}' width='40%' /> </div>
+                <div class='inline'> <span class='customer_name'>{{data.value.name}}</span>
+                    <br />
+                    <span class='customer_email'>{{data.value.email}}</span>
+					<br/>
+					<span class='inline'>{{ data.value.compName}}</span>
+                </div>
+				
+               </div>
+
+        </div>
+
+    </div>
+
+    <div class='form-group voffset2 required'>
+        <label for='inputCompany' class="control-label">Affected Company</label>
+        
+        <input type='search' class='form-control voffset2'style="width:90% " id='inputCompany' ng-model='company' onkeyup='Validate()' title="Type a title for this incident" placeholder='Type a title for this incident'>
+    </div>
+    <div class='form-group voffset4'>
+        <label for='inputTemplate'>Incident Template</label>
+		
+		<div class="form-inline">
+        <input type='text' class='form-control voffset2' style="width:83% " id='inputTemplate' title='Optional field,Start typing the name of a common issue' placeholder='Start typing the name of a common issue'>
+		<button type="button" class="btn btn-info">Browse</button>   
+		</div>
+    </div>
+     <div class='form-group voffset4'>
+    <div class='checkbox'>
+	<fieldset>
+        <label for='auto-assign'>
+            <input type='checkbox' id='auto-assign'>Auto-assign this task to the best fit group</label>
+	<fieldset>
+    </div>
+	</div>
+	
+    <div class='form-group voffset5 required'>
+        <label for='inputTitle' class="control-label">Incident Title</label>        
+        <input type='text' class='form-control voffset2' style="width:90% " id='inputTitle' onkeyup='Validate()' title='Type a title for this incident' placeholder='Type a title for this incident'>
+    </div>
+    <div class='form-group voffset4'>
+        <label for='inputPriority'>Calculated Priority:</label>
+        <button id='inputPriority' type='button' class='btn btn-default {{priority}}'>{{priority}}</button>
+
+    </div>
+    <div class='form-group pull-right'>        
+		 <button type='cancel' class='btn btn-default' id='cancel_btn'>Cancel</button>
+        <button  class='btn btn-primary' id='btn_save'  type='button' disabled='disabled'>Save</button>
+
+    </div>
+
+</div>
+<script>
+  $('body').on('click', '#clearTxt', function() {
+    $('#inputUser, #inputCompany').val('');
+  })
+  
+  
+</script>
+
+</html>

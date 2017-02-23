@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app='pdTypeadhead' ng-controller='mainCtrl'>
+
+<head>
+	<NOSCRIPT>
+     You need Javascript enabled browser to use this site.
+    </NOSCRIPT>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+      <link rel="stylesheet" type="text/css" href="css/examples.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+    <title>Typeahead Functionality using AngularJS</title>   
+</head>
+
+<body>
+<div ng-include="'header.html'"></div>
+      <div class="container-fluid">
+	 <span id="ntfySpan">Form has been saved</span>
+      <div id="preloader">
+    <div id="preloader-inner"></div>
+</div>
+     <div id="myForm">	
+	  <div class="form-content">
+        <form  name="typeaheadForm" method="post" action="#">
+		<label id='required' class="control-label voffset4">*Required Field</label>
+            <div class="form-group voffset3 required ">
+                <label class="control-label">Affected User(s)</label>               
+                <div type-ahead datalist="dataToPopulate"></div>
+            </div>
+        </form>
+		</div>
+		</div>
+    </div>    
+	
+ <div ng-include="'footer.html'"></div> 
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" type="text/javascript"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script src="js/jquery.preloader.min.js"></script>
+    <script src="js/Angular.js"></script>
+    <script src="js/components/typeahead/directive.js" type="text/javascript"></script>
+    <script src="js/components/typeahead/service.js" type="text/javascript"></script>
+    <script src="js/app.js" type="text/javascript"></script>
+	 <script src="js/utility.js" type="text/javascript"></script>
+	 
+</body>
+
+</html>
